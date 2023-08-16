@@ -1,0 +1,13 @@
+# React
+/front/node_modules/
+/front/build/
+/front/.env
+
+# Rails
+/api/log/*
+/api/tmp/*
+/api/log/.keep
+/api/tmp/.keep
+/api/storage/*
+/api/public/assets
+/api/.byebug_history
