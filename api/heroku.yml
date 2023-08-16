@@ -1,3 +1,18 @@
+setup:
+  config:
+    RACK_ENV: production
+    RAILS_ENV: production
+    RAILS_LOG_TO_STDOUT: enabled
+    RAILS_SERVE_STATIC_FILES: enabled
 build:
   docker:
     web: Dockerfile
+  config:
+    WORKDIR: app
+release:
+  command:
+    - bundle exec rake db:create RAILS_ENV=production
+    - bundle exec rake db:migrate RAILS_ENV=production
+    - bundle exec bin/webpack
+run:
+  web: bundle exec puma -C config/puma.rb
